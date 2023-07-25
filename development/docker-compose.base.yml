@@ -19,10 +19,10 @@ services:
     depends_on:
       redis:
         condition: "service_started"
-      db:
+      mysql:
         condition: "service_healthy"
     <<: *nautobot-build
-    <<: *nautobot-base
+    # <<: *nautobot-base
   worker:
     entrypoint:
       - "sh"
