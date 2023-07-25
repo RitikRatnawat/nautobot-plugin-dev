@@ -1,13 +1,16 @@
+# Declaring the Variables in Dockerfile
 ARG NAUTOBOT_VER
 ARG PYTHON_VER
+
+# Using Nautobot Dev image as Base image
 FROM ghcr.io/nautobot/nautobot-dev:${NAUTOBOT_VER}-py${PYTHON_VER}
 
+# Setting up the Logs directory
 ENV prometheus_multiproc_dir=/prom_cache
 
+# Setting up the Nautobot Base Directory
 ARG NAUTOBOT_ROOT=/opt/nautobot
-
 ENV NAUTOBOT_ROOT ${NAUTOBOT_ROOT}
-
 WORKDIR $NAUTOBOT_ROOT
 
 # Configure poetry
